@@ -11,6 +11,7 @@ import (
 
 const (
 	INDEX = "zodo.html"
+	NANO = "nano/"
 )
 
 func motd() {
@@ -26,6 +27,7 @@ func NodoHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	motd()
 	http.HandleFunc("/", NodoHandler)
+	http.Handle("/nano/", http.StripPrefix("/nano/", http.FileServer(http.Dir(NANO))))
 	http.ListenAndServe(":8080", nil)
 }
 
