@@ -4,7 +4,19 @@ console.log("start zodo");
 // scene
 const sce = {
     init() {
-        sce.a = {};
+		sce.a = {};
+		sce.a.r = [1920,1080,0,0];
+		sce.a.c = dom.canvas(sce.a.r);
+		// webgl
+		sce.b = new THREE.Scene();
+		// cam
+		sce.c = new THREE.OrthographicCamera(0,1920,1080,0,-1000,1000);
+		// render
+		sce.d = new THREE.WebGLRenderer({canvas:sce.a.c.can});
+		sce.d.setClearColor(0x0f0f00);
+		sce.d.clearColor();
+		// debug
+		console.log(sce.d.info);
     }
 };
 
