@@ -7,16 +7,22 @@ const sce = {
 		sce.a = {};
 		sce.a.r = [1920,1080,0,0];
 		sce.a.c = dom.canvas(sce.a.r);
+		dom.add(sce.a.c);
+		// console.log(sce.a);
 		// webgl
 		sce.b = new THREE.Scene();
 		// cam
 		sce.c = new THREE.OrthographicCamera(0,1920,1080,0,-1000,1000);
 		// render
-		sce.d = new THREE.WebGLRenderer({canvas:sce.a.c.can});
-		sce.d.setClearColor(0x0f0f00);
+		sce.d = new THREE.WebGLRenderer({canvas:sce.a.c.can,alpha:true});
+		c0 = new THREE.Color(0xf0f000);
+		sce.d.setClearColor(c0,1);
 		sce.d.clearColor();
+		sce.b.background = c0;
 		// debug
 		console.log(sce.d.info);
+		console.log(sce.d.getContext());
+		sce.d.render(sce.b, sce.c);
     }
 };
 
