@@ -50,9 +50,16 @@ const geo = {
 			z0 = 0;
 			geo.a.b.push(x1,y1,z0);
 		}
-		console.log(geo.a);
 		// color
 		geo.b.c = [];
+		for (let i = 0; i < 4; i++) {
+			i0 = i * 4;
+			geo.b.c[i0+0] = rgba.rb();
+			geo.b.c[i0+1] = rgba.rb();
+			geo.b.c[i0+2] = rgba.rb();
+			geo.b.c[i0+3] = 255;
+		}
+		console.log(geo.a);
 	}
 }
 
@@ -81,6 +88,13 @@ const dom = {
 		dom.a.appendChild(c0.can);
 	}
 };
+
+// color
+const rgba = {
+	rb() {
+		return (Math.random() * 255) >>> 0;
+	}
+}
 
 // main
 (function() {
