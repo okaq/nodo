@@ -28,4 +28,14 @@ objective: fill the grid in the least possible moves
 
 no need for AI solver, just generate maze ahead of time
 
+Geometry Buffer / Shader Material in threejs
 
+setting up the generater for grid space
+
+treated like a bitmap of pixels / blocks
+
+each vertex quad forms a pair of triangles
+
+double loop over x-y points in the grid
+
+ 
