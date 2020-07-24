@@ -34,6 +34,28 @@ const loop = {
     }
 };
 
+// geometry
+const geo = {
+	init() {
+		geo.a = {};
+		// single background plane at z = 0
+		geo.a.a = new THREE.BufferGeometry();
+		// vert
+		geo.a.b = [];
+		for (let i = 0; i < 4; i++) {
+			x0 = i % 2;
+			y0 = (i / 2) >>> 0;
+			x1 = 1024 * x0 - 512;
+			y1 = 1024 * y0 - 512;
+			z0 = 0;
+			geo.a.b.push(x1,y1,z0);
+		}
+		console.log(geo.a);
+		// color
+		geo.b.c = [];
+	}
+}
+
 // DOM
 const dom = {
 	init() {
@@ -63,7 +85,7 @@ const dom = {
 // main
 (function() {
     console.log(THREE);
-    subs = [dom,sce];
+    subs = [dom,sce,geo];
     subs.forEach(el => el.init());
     loop.start();
 })();
