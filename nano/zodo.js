@@ -64,12 +64,38 @@ const geo = {
 		geo.a.c = [];
 		for (let i = 0; i < 4; i++) {
 			i0 = i * 4;
+			geo.a.c[i0+0] = rgba.rb();
+			geo.a.c[i0+1] = rgba.rb();
+			geo.a.c[i0+2] = rgba.rb();
+			geo.a.c[i0+3] = 255;
+		}
+		console.log(geo.a);
+	},
+	init2() {
+		geo.b = {};
+		// bkgd quad
+		geo.b.a = new THREE.BufferGeometry();
+		// vert
+		geo.b.b = [];
+		// explicit ccw triangle 
+		// first one
+		geo.b.b.concat([-512,-512,0]);
+		geo.b.b.concat([512,512,0]);
+		geo.b.b.concat([-512,512,0]);
+		// second two
+		geo.b.b.concat([-512,-512,0]);
+		geo.b.b.concat([512,-512,0]);
+		geo.b.b.concat([512,512,0]);
+		// color
+		geo.b.c = [];
+		for (let i = 0; i < 4; i++) {
+			i0 = i * 4;
 			geo.b.c[i0+0] = rgba.rb();
 			geo.b.c[i0+1] = rgba.rb();
 			geo.b.c[i0+2] = rgba.rb();
 			geo.b.c[i0+3] = 255;
 		}
-		console.log(geo.a);
+		console.log(geo.b);
 	},
 	buff() {
 		// vert
@@ -81,7 +107,18 @@ const geo = {
 
 		// set
 		geo.a.a.setAttribute('position', geo.a.d);
-		geo.a.a(setAttrib)
+		geo.a.a.setAttribute('color', geo.a.e);
+	},
+	buff2() {
+		geo.b.d = new THREE.Float32BufferAttribute(geo.b.b, 3);
+
+		// color
+		geo.b.e = new THREE.Uint8BufferAttribute(geo.b.c, 4);
+		geo.b.e.normalized = true;
+
+		// set
+		geo.b.a.setAttribute('position', geo.b.d);
+		geo.a.a.setAttribute('color', geo.b.e);
 	},
 	mat() {
 		// material
