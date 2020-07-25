@@ -44,4 +44,8 @@ each triangle pair forms a quad in buffer geometry
 
 plane geometry abstracts the internals to N triangle mesh
 
+cloud architecture - aws s3, cloudflare workers
+
+webgl indicates counter clockwise triangle winding
+
  

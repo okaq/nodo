@@ -58,6 +58,8 @@ const geo = {
 		}
 		v0.push(v0[3],v0[4],v0[5]);
 		geo.a.b.concat(v0);
+		// update for CCW triangle winding
+		// in webgl face culling
 		// color
 		geo.a.c = [];
 		for (let i = 0; i < 4; i++) {
@@ -76,6 +78,10 @@ const geo = {
 		// color
 		geo.a.e = new THREE.Uint8BufferAttribute(geo.a.c, 4);
 		geo.a.e.normalized = true;
+
+		// set
+		geo.a.a.setAttribute('position', geo.a.d);
+		geo.a.a(setAttrib)
 	},
 	mat() {
 		// material
