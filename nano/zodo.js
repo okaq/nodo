@@ -118,10 +118,42 @@ const geo = {
 
 		// set
 		geo.b.a.setAttribute('position', geo.b.d);
-		geo.a.a.setAttribute('color', geo.b.e);
+		geo.b.a.setAttribute('color', geo.b.e);
 	},
 	mat() {
 		// material
+		geo.c = {};
+		geo.c.a = {
+			"vertexShader": vs,
+			"fragmentShader": fs,
+			"uniforms": {time:1.0},
+			"transparent": true,
+			"side": THREE.DoubleSide,
+
+
+		};
+		geo.c.b = new THREE.RawShaderMaterial(geo.c.a);
+	},
+	mesh() {
+		geo.d = {};
+		geo.d.a = new THREE.Mesh(geo.b.a,geo.c.b);
+	}
+}
+
+// fragment shader
+const fs = `
+
+`;
+
+// vertex shader
+const vs = `
+
+`;
+
+// shader compiler
+const frag = {
+	init() {
+		// do it in material
 	}
 }
 

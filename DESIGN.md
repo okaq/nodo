@@ -48,4 +48,10 @@ cloud architecture - aws s3, cloudflare workers
 
 webgl indicates counter clockwise triangle winding
 
- 
+triangle quad unrolled with explicit vertices
+
+vertex and fragment shaders defined as template (string) literals
+
+template literals flex: inline expressions and tagged functions 
+
+
