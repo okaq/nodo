@@ -42,16 +42,24 @@ const geo = {
 		geo.a.a = new THREE.BufferGeometry();
 		// vert
 		geo.a.b = [];
+		v0 = [];
 		for (let i = 0; i < 4; i++) {
 			x0 = i % 2;
 			y0 = (i / 2) >>> 0;
 			x1 = 1024 * x0 - 512;
 			y1 = 1024 * y0 - 512;
 			z0 = 0;
-			geo.a.b.push(x1,y1,z0);
+			// geo.a.b.push(x1,y1,z0);
+			// two triangle two pairs of three vertices
+			v0.push(x1,y1,z0);
+			if (i == 3) {
+				v0.push(x1,y1,z0);
+			}
 		}
+		v0.push(v0[3],v0[4],v0[5]);
+		geo.a.b.concat(v0);
 		// color
-		geo.b.c = [];
+		geo.a.c = [];
 		for (let i = 0; i < 4; i++) {
 			i0 = i * 4;
 			geo.b.c[i0+0] = rgba.rb();
@@ -60,6 +68,17 @@ const geo = {
 			geo.b.c[i0+3] = 255;
 		}
 		console.log(geo.a);
+	},
+	buff() {
+		// vert
+		geo.a.d = new THREE.Float32BufferAttribute(geo.a.b, 3);
+
+		// color
+		geo.a.e = new THREE.Uint8BufferAttribute(geo.a.c, 4);
+		geo.a.e.normalized = true;
+	},
+	mat() {
+		// material
 	}
 }
 
