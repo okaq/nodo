@@ -128,9 +128,7 @@ const geo = {
 			"fragmentShader": fs,
 			"uniforms": {time:1.0},
 			"transparent": true,
-			"side": THREE.DoubleSide,
-
-
+			"side": THREE.DoubleSide
 		};
 		geo.c.b = new THREE.RawShaderMaterial(geo.c.a);
 	},
@@ -140,14 +138,30 @@ const geo = {
 	}
 }
 
-// fragment shader
-const fs = `
-
-`;
-
 // vertex shader
 const vs = `
+	precision mediump float;
+	precision mediump int;
 
+	uniform float time;
+
+	varying vec3 vPosition;
+	varying vec3 vColor;
+
+	void main() {
+		vec4 color = vec4(vColor);
+		color.r += sin(vPosition.x*10*time) * 0.5;
+
+		gl_FragColor = color;
+	}
+`;
+
+// fragment shader
+const fs = `
+	precision mediump float;
+	precision mediump int;
+
+	uniform mat4 modelViewMatrix;
 `;
 
 // shader compiler
