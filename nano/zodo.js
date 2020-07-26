@@ -30,8 +30,22 @@ const sce = {
 const loop = {
     start() {
         console.log("begin loop");
-        loop.tick = 0;
-    }
+		loop.tick = 0;
+		loop.max = 16;
+		
+		loop.id = window.setInterval(loop.frame, 1000);
+	},
+	frame() {
+		console.log(`tick count: $(loop.tick)`);
+		if (loop.tick >= loop.max) {
+			console.log("anim done");
+			window.clearInterval(loop.id);
+			return;
+		}
+		// update
+		// render scene
+		loop.tick = loop.tick + 1;
+	}
 };
 
 // geometry
@@ -214,7 +228,7 @@ const rgba = {
 	rb() {
 		return (Math.random() * 255) >>> 0;
 	}
-}
+};
 
 // main
 (function() {
@@ -223,3 +237,4 @@ const rgba = {
     subs.forEach(el => el.init());
     loop.start();
 })();
+
