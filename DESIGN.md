@@ -54,4 +54,12 @@ vertex and fragment shaders defined as template (string) literals
 
 template literals flex: inline expressions and tagged functions 
 
+update buffer geometry custom attributes via shader uniforms
+
+or via mesh object properties such as position rotation scale
+
+per vertex color transforms mapped to time and math function uniforms
+
+grid generators themselves are equivalent to lattice vector defines
+
 

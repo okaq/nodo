@@ -23,7 +23,17 @@ const sce = {
 		console.log(sce.d.info);
 		console.log(sce.d.getContext());
 		sce.d.render(sce.b, sce.c);
-    }
+		// program not valid
+	},
+	pop() {
+		// generate grid
+		geo.init2();
+		geo.buff2();
+		geo.mat();
+		geo.mesh();
+
+		sce.b.add(geo.d.a);
+	}
 };
 
 // loop
@@ -32,11 +42,14 @@ const loop = {
         console.log("begin loop");
 		loop.tick = 0;
 		loop.max = 16;
+
+		// populate scene
+		sce.pop();
 		
 		loop.id = window.setInterval(loop.frame, 1000);
 	},
 	frame() {
-		console.log(`tick count: $(loop.tick)`);
+		console.log(`tick count: ${loop.tick}`);
 		if (loop.tick >= loop.max) {
 			console.log("anim done");
 			window.clearInterval(loop.id);
@@ -47,7 +60,7 @@ const loop = {
 		// mesh.position.y = velocity * window.performance.now() + offset;
 		// render scene
 		// sce.b.add(mesh);
-		// sce.d.render(sce.b,sce.c);
+		sce.d.render(sce.b,sce.c);
 		loop.tick = loop.tick + 1;
 	}
 };
