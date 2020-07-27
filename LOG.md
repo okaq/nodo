@@ -10,4 +10,8 @@ a grid in webgl space
 
 now generating geometry for grid space
 
+2020-07-28 simple geometry grid
+
+generated from plane geometry 2-triangle, 4-vertex quads
+
 
