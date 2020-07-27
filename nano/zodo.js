@@ -13,9 +13,11 @@ const sce = {
 		sce.b = new THREE.Scene();
 		// cam
 		sce.c = new THREE.OrthographicCamera(0,1920,1080,0,-1000,1000);
+		sce.c.position
 		// render
 		sce.d = new THREE.WebGLRenderer({canvas:sce.a.c.can,alpha:true});
-		c0 = new THREE.Color(0xf0f000);
+		// c0 = new THREE.Color(0xf0f000);
+		c0 = new THREE.Color(0x000000);
 		sce.d.setClearColor(c0,1);
 		sce.d.clearColor();
 		sce.b.background = c0;
@@ -60,6 +62,8 @@ const loop = {
 		// mesh.position.y = velocity * window.performance.now() + offset;
 		// render scene
 		// sce.b.add(mesh);
+		time0 = window.performance.now();
+		// geo.d.a.material.uniforms.time.value = time0 * 0.005;
 		sce.d.render(sce.b,sce.c);
 		loop.tick = loop.tick + 1;
 	}
@@ -157,8 +161,8 @@ const geo = {
 		geo.c.a = {
 			"vertexShader": vs,
 			"fragmentShader": fs,
-			"uniforms": {time:1.0},
-			"transparent": true,
+			"uniforms": {time:{value:1.0}},
+			"transparent": false,
 			"side": THREE.DoubleSide
 		};
 		geo.c.b = new THREE.RawShaderMaterial(geo.c.a);
@@ -167,7 +171,7 @@ const geo = {
 		geo.d = {};
 		geo.d.a = new THREE.Mesh(geo.b.a,geo.c.b);
 	}
-}
+};
 
 // fragment shader
 const fs = `
@@ -177,11 +181,11 @@ const fs = `
 	uniform float time;
 
 	varying vec3 vPosition;
-	varying vec3 vColor;
+	varying vec4 vColor;
 
 	void main() {
 		vec4 color = vec4(vColor);
-		color.r += sin(vPosition.x*10*time) * 0.5;
+		color.r += sin(vPosition.x*10.0*time) * 0.5;
 
 		gl_FragColor = color;
 	}
@@ -196,14 +200,18 @@ const vs = `
 	uniform mat4 modelViewMatrix;
 	uniform mat4 projectionMatrix;
 
-	attribute vec3 vPosition;
-	attribute vec4 vColor;
+	attribute vec3 position;
+	attribute vec4 color;
+
+	varying vec3 vPosition;
+	varying vec4 vColor;
 
 	void main() {
 		vPosition = position;
 		vColor = color;
 
 		gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+		// gl_Position = vec4(position,1.0);
 	}
 `;
 
@@ -212,7 +220,7 @@ const frag = {
 	init() {
 		// do it in material
 	}
-}
+};
 
 // DOM
 const dom = {
