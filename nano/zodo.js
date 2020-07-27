@@ -43,7 +43,11 @@ const loop = {
 			return;
 		}
 		// update
+		// mesh.materials.uniforms.time = window.performance.now();
+		// mesh.position.y = velocity * window.performance.now() + offset;
 		// render scene
+		// sce.b.add(mesh);
+		// sce.d.render(sce.b,sce.c);
 		loop.tick = loop.tick + 1;
 	}
 };
