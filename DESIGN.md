@@ -62,4 +62,16 @@ per vertex color transforms mapped to time and math function uniforms
 
 grid generators themselves are equivalent to lattice vector defines
 
+for a single server vm (large) and many web browser client game
+
+our latency for turn based strategy, peer to peer, or shared experience play
+
+is on order of 1 fps in webgl
+
+and one minute per global "turn" in server side global game state
+
+simply process updates from players as they arrive, in blocks of one minute turns
+
+design the game around the cloud mediated peer net
+
 
