@@ -1,3 +1,37 @@
 <!DOCTYPE html>
-ok okaq nodo grid world go!
+<html>
+	<head id="zeta">
+    	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    	<meta name="viewport" content="width=1920,height=1080,initial-scale=1" />
+    	<meta name="source" content="https://github.com/okaq/nodo" />
+    	<meta name="author" content="AQ<aq@okaq.com>" />
+    	<meta name="date" content="2020-07-30" />
+    	<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAL0lEQVR4nOzNQREAMAzDsN2u/CmnJJqfDMCaJK/Zr94BAAAAAAAAAADAYRsAAP//7FEDQPMHpGYAAAAASUVORK5CYII=" />
+    	<style type="text/css">
+        	html,body{width:1920px;overflow:auto;height:1080px;margin:0px;border:0px;padding:0px;background-color:rgba(0,0,0,0);}
+    	</style>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+			console.log("inline split: " + Date.now());
+			var a = {
+				"load": function(e) {
+					console.log("dom content load split: " + Date.now());
+				}
+			}
+			var b = {
+				"load": function(e) {
+					console.log("doc load split: " + Date.now());
+				}
+			}
+			document.addEventListener("DOMContentLoaded", a.load, false);
+			document.addEventListener("load", b.load, false);
+			// console.log(THREE);
+		})();
+	</script>
+	<script defer src="http://localhost:8080/nano/yodo.js"></script>
+ 	</head>
+	<body id="alpha">
+	</body>
+</html>
 

@@ -14,4 +14,10 @@ now generating geometry for grid space
 
 generated from plane geometry 2-triangle, 4-vertex quads
 
+we can use Weave Silk to create simple textures
+
+press and hold in center for 1-3 seconds, small sprite
+
+export to data uri, create blob png, and render to threejs material
+
 
