@@ -7,7 +7,8 @@ const sce = {
         sce.a = {};
         sce.a.r = [1920,1080,0,0];
         sce.a.c = dom.canvas(sce.a.r);
-        dom.add(sce.a.c);
+		dom.add(sce.a.c);
+		console.log(sce.a);
     }
 };
 
@@ -16,6 +17,13 @@ const geo = {
     init() {
         geo.a = {};
     }
+};
+
+// loop
+const loop = {
+	start() {
+		loop.tick = 0;
+	}
 };
 
 // DOM
