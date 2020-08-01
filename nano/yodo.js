@@ -9,7 +9,21 @@ const sce = {
         sce.a.c = dom.canvas(sce.a.r);
 		dom.add(sce.a.c);
 		console.log(sce.a);
-    }
+	},
+	scene() {
+		// webgl
+		sce.b = new THREE.Scene();
+		// cam
+		sce.c = new THREE.OrthographicCamera(0,1920,0,1080,-100,100);
+		// pos, look
+		// render
+		sce.d = new THREE.WebGLRenderer({canvas:sce.a.c});
+	},
+	clear() {
+		c0 = new THREE.Color(0x0f0f0f);
+		sce.d.setClearColor(c0);
+		sce.d.clearColor();
+	}
 };
 
 // geometry
