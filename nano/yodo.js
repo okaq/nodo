@@ -23,6 +23,13 @@ const sce = {
 		c0 = new THREE.Color(0x0f0f0f);
 		sce.d.setClearColor(c0);
 		sce.d.clearColor();
+	},
+	debug() {
+		console.log(sce.d.info);
+		console.log(sce.d.getContext());
+	},
+	render() {
+		sce.d.render(sce.b, sce.c);
 	}
 };
 
