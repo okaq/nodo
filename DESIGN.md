@@ -74,4 +74,14 @@ simply process updates from players as they arrive, in blocks of one minute turn
 
 design the game around the cloud mediated peer net
 
+BattleSnakes / Paint the Floor
+
+empty grid, capture territory, monochrome 256 grey scale
+
+full screen hd collection of 16x16 grid points
+
+prototype in p5js, create mesh object in 3js editor
+
+1 fps animation, api bot play ai research
+
 
