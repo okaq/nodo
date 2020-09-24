@@ -84,4 +84,16 @@ prototype in p5js, create mesh object in 3js editor
 
 1 fps animation, api bot play ai research
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Big Slide Puzzle
+
+Human vs AI dual game board on one screen
+
+play at 1 fps turn based speed
+
+try and solve in the fewest possible moves
+
+procedural content generation + classic game ai "search"
+
 
